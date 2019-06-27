@@ -18,11 +18,8 @@ test_that("datalogger is sending data to Weather Underground", {
 
 test_that("phenocam is accessible", {
   
-  if(substr(format(Sys.time(),tz = "MST",usetz=TRUE), 12, 16) > "12:00" &&
-     substr(format(Sys.time(),tz = "MST",usetz=TRUE), 12, 16) < "15:30") 
-    {
   expect_error(httr::GET("http://166.153.133.121:5555/"),NA) 
-    }
+
 })
 
 test_that("phenocam is sending pics", {
