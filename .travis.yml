@@ -10,4 +10,10 @@ install:
 script:
   - Rscript testthat.R
   
-
+notifications:
+  slack: weecology:8l6yh0T3L0cYXPuJ4CiYwhCo
+  
+after_success:
+slack:
+    on_success: always
+    on_failure: always
