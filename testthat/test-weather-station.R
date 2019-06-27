@@ -18,7 +18,7 @@ test_that("datalogger is sending data to Weather Underground", {
 
 test_that("phenocam is accessible", {
   
-  expect_error(httr::GET("http://166.153.133.121:5555/index.html?size=2&mode=0"),NA) 
+  expect_error(httr::GET("http://166.153.133.121:5555/popup.html?0"),NA) 
 
 })
 
