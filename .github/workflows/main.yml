@@ -1,0 +1,44 @@
+# Install packages, test weather station status
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: "0 20 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: contains(toJson(github.event.commits), '[skip ci]') == false
+
+    runs-on: ubuntu-latest
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Tests will fail on PRs from forks
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          echo Tests require pull requests be submitted from branches in the main repository
+          exit 1
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
+
+      - name: Setup R (Ubuntu)
+        uses: eddelbuettel/github-actions/r2u-setup@master
+
+      - name: Install R packages
+        run: Rscript install-packages.R
+
+      - name: Run Tests
+        run: Rscript testthat.R

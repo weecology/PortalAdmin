@@ -4,4 +4,4 @@ if ("pacman" %in% rownames(installed.packages()) == FALSE) install.packages("pac
 
 # Install packages using pacman
 
-pacman::p_load(httr, testthat)
+pacman::p_load(httr, rvest, testthat)
