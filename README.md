@@ -3,7 +3,8 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/weecology/PortalAdmin/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/weecology/PortalAdmin/actions/workflows/R-CMD-check.yaml)
+[![Weather Station
+Status](https://github.com/weecology/PortalAdmin/actions/workflows/main.yml/badge.svg)](https://github.com/weecology/PortalAdmin/actions/workflows/main.yml)
 <!-- badges: end -->
 
 ## [Wunderground](http://www.wunderground.com/dashboard/pws/KAZSANSI14)
