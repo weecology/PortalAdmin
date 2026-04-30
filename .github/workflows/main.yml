@@ -1,6 +1,6 @@
 # Install packages, test weather station status
 
-name: CI
+name: Daily CI
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: "0 20 * * *"
+    - cron: "05 20 * * *"  
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
